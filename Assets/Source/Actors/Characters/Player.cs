@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
+       /* public List<Item> inventory = */ /*Invetory dla gracza jako pole*/
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -33,6 +35,10 @@ namespace DungeonCrawl.Actors.Characters
 
         public override bool OnCollision(Actor anotherActor)
         {
+            if (anotherActor.DefaultName == "Wall")
+            {
+                return true;
+            }
             return false;
         }
 
