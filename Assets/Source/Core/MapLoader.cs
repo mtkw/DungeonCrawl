@@ -1,8 +1,11 @@
 ﻿using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Actors.Static;
+using DungeonCrawl.Actors.Items;
 using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using JetBrains.Annotations;
+using System.Collections.Generic;
 
 namespace DungeonCrawl.Core
 {
@@ -11,6 +14,7 @@ namespace DungeonCrawl.Core
     /// </summary>
     public static class MapLoader
     {
+        public static List<Actors.Characters.Character> Equipment { get; private set; } /*Inventory*/
         /// <summary>
         ///     Constructs map from txt file and spawns actors at appropriate positions
         /// </summary>
@@ -23,7 +27,7 @@ namespace DungeonCrawl.Core
             var split = lines[0].Split(' ');
             var width = int.Parse(split[0]);
             var height = int.Parse(split[1]);
-
+            
             // Create actors
             for (var y = 0; y < height; y++)
             {
@@ -33,9 +37,17 @@ namespace DungeonCrawl.Core
                     var character = line[x];
 
                     SpawnActor(character, (x, -y));
+
                 }
             }
-
+            /*Equipment.Add(new Actors.Characters.Skeleton());
+            //Wyświetlanie Inventory (Klasa statyczna)
+            foreach (var item in Equipment) 
+            {
+                int i = 0;
+                ActorManager.Singleton.Spawn<Actors.Characters.Character>(i, height + 1);
+                i++;
+            }*/
             // Set default camera size and position
             CameraController.Singleton.Size = 10;
             CameraController.Singleton.Position = (width / 2, -height / 2);
@@ -57,6 +69,18 @@ namespace DungeonCrawl.Core
                     break;
                 case 's':
                     ActorManager.Singleton.Spawn<Skeleton>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case 'o':
+                    ActorManager.Singleton.Spawn<Orc>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case 'm':
+                    ActorManager.Singleton.Spawn<Mag>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case 'a':
+                    ActorManager.Singleton.Spawn<Armor>(position);
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case ' ':

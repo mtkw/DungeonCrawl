@@ -4,9 +4,18 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Skeleton : Character
     {
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            {
+                Direction direction = (Direction)Random.Range(0, 4);
+                TryMove(direction);
+            }
+        }
         public override bool OnCollision(Actor anotherActor)
         {
-            return true;
+            return false;
         }
 
         protected override void OnDeath()
