@@ -25,6 +25,7 @@ namespace DungeonCrawl.Actors.Items
                 Debug.Log("Player found itme");
                 Player player = (Player)anotherActor;
                 player.Inventory.Add(this);
+                player.SetArmor(this.ItemStatistic);
                 ActorManager.Singleton.DestroyActor(this);
                 return true;
             }

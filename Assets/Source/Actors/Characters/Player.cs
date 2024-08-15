@@ -5,7 +5,14 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
-       /* public List<Item> inventory = */ /*Invetory dla gracza jako pole*/
+        public List<Item> Inventory = new List<Item>();
+
+        public Player() 
+        {
+            base.SetInitialHealth(10);
+            base.SetInitialArmor();
+            base.SetHitValue(2);
+        }
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -31,6 +38,15 @@ namespace DungeonCrawl.Actors.Characters
                 // Move right
                 TryMove(Direction.Right);
             }
+            if (Input.GetKeyDown(KeyCode.E)) {
+                foreach (Item item in Inventory) { Debug.Log(item.ItemType.ToString()); }
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                Debug.Log("Player Health: " + this.Health);
+                Debug.Log("Player Armor: " + this.Armor);
+                Debug.Log("Player Hit Points: " + this.Hit);
+            }
         }
 
         public override bool OnCollision(Actor anotherActor)
@@ -38,6 +54,11 @@ namespace DungeonCrawl.Actors.Characters
             if (anotherActor.DefaultName == "Wall")
             {
                 return true;
+            }
+            if (anotherActor is Character) { 
+               Character character = (Character)anotherActor;
+               this.ApplyDamage(character.Hit);
+               character.ApplyDamage(this.Hit);
             }
             return false;
         }
