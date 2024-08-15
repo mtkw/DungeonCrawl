@@ -57,7 +57,6 @@ namespace DungeonCrawl.Actors
             }
         }
 
-
         /// <summary>
         ///     Invoked whenever another actor attempts to walk on the same position
         ///     this actor is placed.

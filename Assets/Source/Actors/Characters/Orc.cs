@@ -19,25 +19,21 @@ namespace DungeonCrawl.Actors.Characters
             {
                 if (currentDirection == Direction.Up)
                 {
-                    Debug.Log(currentDirection);
                     TryMove(Direction.Up);
                     currentDirection = Direction.Left;
                 }
                 else if (currentDirection == Direction.Left)
                 {
-                    Debug.Log(currentDirection);
                     TryMove(Direction.Left);
                     currentDirection = Direction.Down;
                 }
                 else if (currentDirection == Direction.Down)
                 {
-                    Debug.Log(currentDirection);
                     TryMove(Direction.Down);
                     currentDirection = Direction.Right;
                 }
                 else if (currentDirection == Direction.Right)
                 {
-                    Debug.Log(currentDirection);
                     TryMove(Direction.Right);
                     currentDirection = Direction.Up;
                 }

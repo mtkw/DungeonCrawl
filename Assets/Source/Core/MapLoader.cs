@@ -14,7 +14,6 @@ namespace DungeonCrawl.Core
     /// </summary>
     public static class MapLoader
     {
-        public static List<Actors.Characters.Character> Equipment { get; private set; } /*Inventory*/
         /// <summary>
         ///     Constructs map from txt file and spawns actors at appropriate positions
         /// </summary>
@@ -40,14 +39,7 @@ namespace DungeonCrawl.Core
 
                 }
             }
-            /*Equipment.Add(new Actors.Characters.Skeleton());
-            //Wyświetlanie Inventory (Klasa statyczna)
-            foreach (var item in Equipment) 
-            {
-                int i = 0;
-                ActorManager.Singleton.Spawn<Actors.Characters.Character>(i, height + 1);
-                i++;
-            }*/
+
             // Set default camera size and position
             CameraController.Singleton.Size = 10;
             CameraController.Singleton.Position = (width / 2, -height / 2);

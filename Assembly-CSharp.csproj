@@ -75,9 +75,13 @@
     <Compile Include="Assets\Source\Actors\Characters\Orc.cs" />
     <Compile Include="Assets\Source\Actors\Items\Key.cs" />
     <Compile Include="Assets\Source\Actors\Static\Dor.cs" />
+    <Compile Include="Assets\Source\Actors\Items\Item.cs" />
     <Compile Include="Assets\Source\Core\GameManager.cs" />
+    <Compile Include="Assets\Source\UI\UIInventory.cs" />
+    <Compile Include="Assets\Source\UI\InventoryControler.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
     <Compile Include="Assets\Source\Actors\Static\Floor.cs" />
+    <Compile Include="Assets\Source\UI\UIInventoryItem.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
   </ItemGroup>
   <ItemGroup>
