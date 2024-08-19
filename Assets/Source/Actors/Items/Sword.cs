@@ -1,31 +1,33 @@
-﻿using DungeonCrawl.Actors.Characters;
+﻿using Assets.Source.Actors.Items;
+using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Items
 {
-    public class Armor : Item
+    public class Sword : Item
     {
-        public override int DefaultSpriteId => 34;
-        public override string DefaultName => "Armor";
+        public override int DefaultSpriteId => 129;
+        public override string DefaultName => "Sword";
 
         public override bool Detectable => true;
 
-        public Armor()  
-        { 
-            base.ItemType = ItemType.Armor;
-            base.ItemStatistic = 5;
+        public Sword()
+        {
+            base.ItemType = ItemType.Weapon;
+            base.ItemStatistic = 4;
             base.ItemCount = 1;
         }
 
         public override bool OnCollision(Actor anotherActor)
         {
-            if (anotherActor is Player) {
-                Debug.Log("Player found Armor");
+            if (anotherActor is Player)
+            {
+                Debug.Log("Player found Sword");
                 Player player = (Player)anotherActor;
                 player.Inventory.Add(this);
-                player.SetArmor(this.ItemStatistic);
+                player.IncreaseHitStats(this.ItemStatistic);
                 ActorManager.Singleton.DestroyActor(this);
                 return true;
             }

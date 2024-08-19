@@ -1,18 +1,27 @@
 ﻿using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public class Mag : Character
     {
+        public Mag()
+        {
+            base.SetInitialHealth(6);
+            base.SetInitialArmor();
+            base.SetHitValue(4);
+        }
+
         public override bool OnCollision(Actor anotherActor)
         {
+            if(anotherActor is Player)
+            {
+                Character player = (Character)anotherActor;
+                this.ApplyDamage(player.Hit);
+                player.ApplyDamage(this.Hit);
+            }
             return false;
         }
 

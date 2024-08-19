@@ -13,6 +13,13 @@ namespace DungeonCrawl.Actors.Characters
     {
         private Direction currentDirection = Direction.Up;
 
+        public Orc()
+        {
+            base.SetInitialHealth(6);
+            base.SetInitialArmor();
+            base.SetHitValue(6);
+        }
+
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))

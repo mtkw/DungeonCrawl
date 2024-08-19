@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -109,11 +110,12 @@ namespace DungeonCrawl.Core
         {
             var go = new GameObject();
             go.AddComponent<SpriteRenderer>();
-
             var component = go.AddComponent<T>();
 
             go.name = actorName ?? component.DefaultName;
             component.Position = (x, y);
+
+            
 
             _allActors.Add(component);
 

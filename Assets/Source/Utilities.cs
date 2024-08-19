@@ -7,7 +7,8 @@ namespace DungeonCrawl
         Up,
         Down,
         Left,
-        Right
+        Right,
+        None
     }
 
     public static class Utilities
@@ -24,6 +25,8 @@ namespace DungeonCrawl
                     return (-1, 0);
                 case Direction.Right:
                     return (1, 0);
+                case Direction.None:
+                    return(0, 0);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(dir), dir, null);
             }

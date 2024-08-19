@@ -16,7 +16,8 @@ namespace DungeonCrawl.Actors.Characters
             }
             else
             {
-                Health -= damage;
+                Armor = 0;
+                Health -= damage; 
             }
             if (Health <= 0)
             {

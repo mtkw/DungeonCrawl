@@ -57,6 +57,7 @@ namespace DungeonCrawl.Core
                     break;
                 case 'p':
                     ActorManager.Singleton.Spawn<Player>(position);
+/*                    Debug.Log(Player)*/
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case 's':
@@ -73,6 +74,10 @@ namespace DungeonCrawl.Core
                     break;
                 case 'a':
                     ActorManager.Singleton.Spawn<Armor>(position);
+                    ActorManager.Singleton.Spawn<Floor>(position);
+                    break;
+                case 'w':
+                    ActorManager.Singleton.Spawn<Sword>(position);
                     ActorManager.Singleton.Spawn<Floor>(position);
                     break;
                 case ' ':
