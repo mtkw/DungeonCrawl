@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -19,7 +15,8 @@ namespace DungeonCrawl.Actors.Characters
         public ItemType ItemType;
         public int ItemStatistic;
         public int ItemCount;
-    }
 
+
+    }
 
 }

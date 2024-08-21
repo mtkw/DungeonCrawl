@@ -1,3 +1,4 @@
+using DungeonCrawl.Actors.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class InventoryControler : MonoBehaviour
     private UIInventory inventoryUI;
 
     public int inventorySize = 10;
+
+    
 
     private void Start()
     {
